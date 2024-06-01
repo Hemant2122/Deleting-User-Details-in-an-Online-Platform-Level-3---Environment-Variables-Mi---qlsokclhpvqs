@@ -32,7 +32,7 @@ app.delete("/api/v1/details/:id", (req, res) => {
         status: "success", 
         message: "User details deleted successfully",
         data: {
-          product: product,
+          details: product,
         }
       }
       res.send(output);
