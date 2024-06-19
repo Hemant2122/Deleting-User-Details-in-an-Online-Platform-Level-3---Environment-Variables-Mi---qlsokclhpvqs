@@ -3,9 +3,16 @@ const express = require("express");
 const app = express();
 
 // Importing products from userDetails.json file
-const userDetails = JSON.parse(
-  fs.readFileSync(`${__dirname}/data/userDetails.json`)
-);
+const userDetailsFilePath = `${__dirname}/data/userDetails.json`;
+
+// Read and parse userDetails.json file
+let userDetails;
+try {
+  userDetails = JSON.parse(fs.readFileSync(userDetailsFilePath));
+} catch (error) {
+  console.error("Failed to read or parse userDetails.json:", error);
+  userDetails = [];
+}
 
 //Middlewares
 app.use(express.json());
