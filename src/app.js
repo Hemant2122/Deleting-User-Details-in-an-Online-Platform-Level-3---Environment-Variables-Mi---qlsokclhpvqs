@@ -209,7 +209,7 @@ app.post("/api/v1/details", (req, res) => {
       console.error("Failed to write to userDetails.json:", err);
       return res.status(500).json({ status: "error", message: "Failed to register user!" });
     }
-    res.status(201).json({
+    res.status(200).json({
       status: "success",
       message: "User registered successfully",
       data: { userDetails: newUser },
