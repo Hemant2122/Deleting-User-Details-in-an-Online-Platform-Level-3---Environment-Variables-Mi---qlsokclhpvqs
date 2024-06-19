@@ -23,7 +23,7 @@ app.delete("/api/v1/details/:id", (req, res) => {
   const userIndex = userDetails.findIndex(user => user.id === id);
 
   if (userIndex === -1) {
-    return res.status(200).json({ status: "failed", message: "User not found!" });
+    return res.status(404).json({ status: "failed", message: "User not found!" });
   }
 
   const deletedUser = userDetails.splice(userIndex, 1)[0];
